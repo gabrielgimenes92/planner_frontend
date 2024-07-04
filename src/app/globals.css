@@ -105,3 +105,8 @@ a {
     color-scheme: dark;
   }
 }
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
