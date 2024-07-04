@@ -1,0 +1,10 @@
+.calendarHeader {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.calendarHeaderCell {
+    height: 3rem;
+    border: 1px solid white;
+    text-align: center;
+}

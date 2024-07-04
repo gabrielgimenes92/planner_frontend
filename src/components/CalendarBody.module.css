@@ -1,0 +1,11 @@
+.calendarLine {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.calendarCell {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    height: 6rem;
+    border: 1px solid white;
+}
