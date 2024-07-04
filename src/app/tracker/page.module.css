@@ -1,0 +1,59 @@
+.habitsTracker {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.habits {
+    width: 800px;
+    margin: 3rem auto 0 auto;
+}
+
+.habit {
+    margin-top: 0.3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.habitDescription {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.habitColor {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    background-color: red;
+}
+
+.habitActions {
+    display: flex;
+    gap: 2rem;
+    flex-flow: row nowrap;
+}
+
+.calendar {
+    margin-top: 3rem;
+    /* width: 1200px;
+    margin: 0 auto; */
+}
+
+.calendarHeader, .calendarLine {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.calendarHeaderCell {
+    height: 3rem;
+    border: 1px solid white;
+    text-align: center;
+}
+
+.calendarCell {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    height: 6rem;
+    border: 1px solid white;
+}
