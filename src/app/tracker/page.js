@@ -4,8 +4,12 @@ import styles from './page.module.css';
 const page = () => {
   return (
     <div className={styles.habitsTracker}>
-      <h1>Habit Tracker</h1>
-      <h2 className={styles.monthSelection}>February 2020</h2>
+      <h1 className={styles.habitTrackerTitle}>Habit Tracker</h1>
+      <div className={styles.monthSelectionWrapper}>
+        <p>&lt;</p>
+        <h2 className={styles.monthSelection}>February 2020</h2>
+        <p>&gt;</p>
+      </div>
       <div>
         <ul className={styles.habits}>
           <li className={styles.habit}>

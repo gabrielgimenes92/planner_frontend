@@ -3,6 +3,18 @@
     margin: 0 auto;
 }
 
+.habitTrackerTitle {
+    margin-top: 1rem;
+}
+
+.monthSelectionWrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
 .habits {
     width: 800px;
     margin: 3rem auto 0 auto;
