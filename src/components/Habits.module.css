@@ -1,0 +1,30 @@
+.habits {
+    width: 800px;
+    margin: 3rem auto 0 auto;
+}
+
+.habit {
+    margin-top: 0.3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.habitDescription {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.habitColor {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    background-color: red;
+}
+
+.habitActions {
+    display: flex;
+    gap: 2rem;
+    flex-flow: row nowrap;
+}

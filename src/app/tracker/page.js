@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './page.module.css';
 import Calendar from '@/components/Calendar';
+import Habits from '@/components/Habits';
 
 const page = () => {
   return (
@@ -11,76 +12,7 @@ const page = () => {
         <h2 className={styles.monthSelection}>February 2020</h2>
         <p>&gt;</p>
       </div>
-      <div>
-        <ul className={styles.habits}>
-          <li className={styles.habit}>
-            <div className={styles.habitDescription}>
-              <div className={styles.habitColor}></div>
-              <p>Habit being tracked</p>
-            </div>
-            <div className={styles.habitActions}>
-              <input type="checkbox" />
-              <p>E</p>
-              <p>D</p>
-            </div>
-          </li>
-          <li className={styles.habit}>
-            <div className={styles.habitDescription}>
-              <div className={styles.habitColor}></div>
-              <p>Habit being tracked</p>
-            </div>
-            <div className={styles.habitActions}>
-              <input type="checkbox" />
-              <p>E</p>
-              <p>D</p>
-            </div>
-          </li>
-          <li className={styles.habit}>
-            <div className={styles.habitDescription}>
-              <div className={styles.habitColor}></div>
-              <p>Habit being tracked</p>
-            </div>
-            <div className={styles.habitActions}>
-              <input type="checkbox" />
-              <p>E</p>
-              <p>D</p>
-            </div>
-          </li>
-          <li className={styles.habit}>
-            <div className={styles.habitDescription}>
-              <div className={styles.habitColor}></div>
-              <p>Habit being tracked</p>
-            </div>
-            <div className={styles.habitActions}>
-              <input type="checkbox" />
-              <p>E</p>
-              <p>D</p>
-            </div>
-          </li>
-          <li className={styles.habit}>
-            <div className={styles.habitDescription}>
-              <div className={styles.habitColor}></div>
-              <p>Habit being tracked</p>
-            </div>
-            <div className={styles.habitActions}>
-              <input type="checkbox" />
-              <p>E</p>
-              <p>D</p>
-            </div>
-          </li>
-          <li className={styles.habit}>
-            <div className={styles.habitDescription}>
-              <div className={styles.habitColor}></div>
-              <p>Habit being tracked</p>
-            </div>
-            <div className={styles.habitActions}>
-              <input type="checkbox" />
-              <p>E</p>
-              <p>D</p>
-            </div>
-          </li>
-        </ul>
-      </div>
+      <Habits />
       <Calendar />
     </div>
   );
