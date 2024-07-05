@@ -9,17 +9,17 @@ import dummyHabits from '@/dummyData/dummyHabits';
 const Habits = () => {
   const [habitsList, setHabitsList] = useState(dummyHabits);
 
-  console.log(habitsList);
-
   return (
     <div>
       <ul className={styles.habits}>
-        <Habit />
-        <Habit />
-        <Habit />
-        <Habit />
-        <Habit />
-        <Habit />
+        {habitsList.map((habit) => (
+          <Habit
+            id={habit.id}
+            description={habit.description}
+            color={habit.color}
+            checked={habit.checked}
+          />
+        ))}
       </ul>
     </div>
   );
