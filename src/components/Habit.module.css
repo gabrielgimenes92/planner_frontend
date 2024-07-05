@@ -1,9 +1,4 @@
-.habits {
-    width: 800px;
-    margin: 3rem auto 0 auto;
-}
-
-/* .habit {
+.habit {
     margin-top: 0.3rem;
     display: flex;
     justify-content: space-between;
@@ -27,4 +22,4 @@
     display: flex;
     gap: 2rem;
     flex-flow: row nowrap;
-} */
+}

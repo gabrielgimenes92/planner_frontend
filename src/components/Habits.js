@@ -1,76 +1,25 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import styles from './Habits.module.css';
+import Habit from './Habit';
+
+import dummyHabits from '@/dummyData/dummyHabits';
 
 const Habits = () => {
+  const [habitsList, setHabitsList] = useState(dummyHabits);
+
+  console.log(habitsList);
+
   return (
     <div>
       <ul className={styles.habits}>
-        <li className={styles.habit}>
-          <div className={styles.habitDescription}>
-            <div className={styles.habitColor}></div>
-            <p>Habit being tracked</p>
-          </div>
-          <div className={styles.habitActions}>
-            <input type="checkbox" />
-            <p>E</p>
-            <p>D</p>
-          </div>
-        </li>
-        <li className={styles.habit}>
-          <div className={styles.habitDescription}>
-            <div className={styles.habitColor}></div>
-            <p>Habit being tracked</p>
-          </div>
-          <div className={styles.habitActions}>
-            <input type="checkbox" />
-            <p>E</p>
-            <p>D</p>
-          </div>
-        </li>
-        <li className={styles.habit}>
-          <div className={styles.habitDescription}>
-            <div className={styles.habitColor}></div>
-            <p>Habit being tracked</p>
-          </div>
-          <div className={styles.habitActions}>
-            <input type="checkbox" />
-            <p>E</p>
-            <p>D</p>
-          </div>
-        </li>
-        <li className={styles.habit}>
-          <div className={styles.habitDescription}>
-            <div className={styles.habitColor}></div>
-            <p>Habit being tracked</p>
-          </div>
-          <div className={styles.habitActions}>
-            <input type="checkbox" />
-            <p>E</p>
-            <p>D</p>
-          </div>
-        </li>
-        <li className={styles.habit}>
-          <div className={styles.habitDescription}>
-            <div className={styles.habitColor}></div>
-            <p>Habit being tracked</p>
-          </div>
-          <div className={styles.habitActions}>
-            <input type="checkbox" />
-            <p>E</p>
-            <p>D</p>
-          </div>
-        </li>
-        <li className={styles.habit}>
-          <div className={styles.habitDescription}>
-            <div className={styles.habitColor}></div>
-            <p>Habit being tracked</p>
-          </div>
-          <div className={styles.habitActions}>
-            <input type="checkbox" />
-            <p>E</p>
-            <p>D</p>
-          </div>
-        </li>
+        <Habit />
+        <Habit />
+        <Habit />
+        <Habit />
+        <Habit />
+        <Habit />
       </ul>
     </div>
   );
