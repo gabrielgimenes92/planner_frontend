@@ -9,7 +9,7 @@ const page = () => {
       <h1 className={styles.habitTrackerTitle}>Habit Tracker</h1>
       <div className={styles.monthSelectionWrapper}>
         <p>&lt;</p>
-        <h2 className={styles.monthSelection}>February 2020</h2>
+        <h2 className={styles.monthSelection}>February 4th 2020</h2>
         <p>&gt;</p>
       </div>
       <Habits />
