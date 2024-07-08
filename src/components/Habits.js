@@ -1,19 +1,18 @@
-'use client';
+// 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styles from './Habits.module.css';
 import Habit from './Habit';
 
-import { dummyHabits, dummyHabits2 } from '@/dummyData/dummyHabits';
-
-const Habits = () => {
-  const [monthHabitsList, setMonthHabitsList] = useState(dummyHabits2);
-  const [dayHabitsList, setDayHabitsList] = useState([]);
-  let currentDate = new Date('February, 3, 2020');
-
+const Habits = ({
+  monthHabitsList,
+  dayHabitsList,
+  setDayHabitsList,
+  selectedDate,
+}) => {
   useEffect(() => {
     for (let i = 0; i < monthHabitsList.length; i++) {
-      if (monthHabitsList[i].date.getDay() == currentDate.getDay()) {
+      if (monthHabitsList[i].date.getDay() == selectedDate.getDay()) {
         setDayHabitsList(monthHabitsList[i].habits);
       }
     }
