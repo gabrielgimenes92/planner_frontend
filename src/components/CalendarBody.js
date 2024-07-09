@@ -17,33 +17,39 @@ const CalendarBody = ({ monthHabitsList, selectedDate }) => {
   lastDayOfMonth.setTime(firstDayOfNextMonth.getTime() - 24 * 60 * 60 * 1000);
 
   while (!completedMonth) {
-    let j = firstDayOfMonth.getDay();
-    let offsetDate = new Date();
+    let firstDayOfMonthWeekDay = firstDayOfMonth.getDay();
+    let offsetStartDate = new Date();
 
     //first line
     for (let i = 6; i >= 0; i--) {
-      if (j > 0) {
-        offsetDate.setTime(firstDayOfMonth.getTime() - j * 24 * 60 * 60 * 1000);
+      if (firstDayOfMonthWeekDay > 0) {
+        offsetStartDate.setTime(
+          firstDayOfMonth.getTime() -
+            firstDayOfMonthWeekDay * 24 * 60 * 60 * 1000
+        );
         calendar = (
           <div className={styles.calendarCell}>
             <div className="calendar-bubbles"></div>
-            <h3 style={{ color: 'green' }}>{offsetDate.getDate()}</h3>
+            <h3 style={{ color: 'green' }}>{offsetStartDate.getDate()}</h3>
           </div>
         );
-      } else if (j <= 0) {
-        offsetDate.setTime(firstDayOfMonth.getTime() - j * 24 * 60 * 60 * 1000);
+      } else if (firstDayOfMonthWeekDay <= 0) {
+        offsetStartDate.setTime(
+          firstDayOfMonth.getTime() -
+            firstDayOfMonthWeekDay * 24 * 60 * 60 * 1000
+        );
         calendar = (
           <div className={styles.calendarCell}>
             <div className="calendar-bubbles"></div>
-            <h3>{offsetDate.getDate()}</h3>
+            <h3>{offsetStartDate.getDate()}</h3>
           </div>
         );
       }
       firstCalendarLine.push(calendar);
-      j--;
+      firstDayOfMonthWeekDay--;
     }
 
-    console.log(lastDayOfMonth);
+    console.log(lastDayOfMonth.getDay());
 
     //subsequent lines
     let middleLines = [];
@@ -54,6 +60,34 @@ const CalendarBody = ({ monthHabitsList, selectedDate }) => {
     );
 
     //last line
+    let lastDayOfMonthWeekDay = lastDayOfMonth.getDay();
+    let offsetEndDate = new Date();
+
+    for (let i = 0; i <= 6; i++) {
+      if (lastDayOfMonthWeekDay >= 0) {
+        offsetEndDate.setTime(
+          lastDayOfMonth.getTime() + lastDayOfMonthWeekDay * 24 * 60 * 60 * 1000
+        );
+        calendar = (
+          <div className={styles.calendarCell}>
+            <div className="calendar-bubbles"></div>
+            <h3>{offsetEndDate.getDate()}</h3>
+          </div>
+        );
+      } else if (lastDayOfMonthWeekDay < 0) {
+        offsetEndDate.setTime(
+          lastDayOfMonth.getTime() - lastDayOfMonthWeekDay * 24 * 60 * 60 * 1000
+        );
+        calendar = (
+          <div className={styles.calendarCell}>
+            <div className="calendar-bubbles"></div>
+            <h3 style={{ color: 'green' }}>{offsetEndDate.getDate()}</h3>
+          </div>
+        );
+      }
+      firstCalendarLine.push(calendar);
+      lastDayOfMonthWeekDay--;
+    }
 
     // calendar = (
     //   <div className={styles.calendarCell}>
