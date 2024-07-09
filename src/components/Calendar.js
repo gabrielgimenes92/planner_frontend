@@ -3,11 +3,14 @@ import CalendarHeader from './CalendarHeader';
 import CalendarBody from './CalendarBody';
 import styles from './Calendar.module.css';
 
-const Calendar = () => {
+const Calendar = ({ monthHabitsList, selectedDate }) => {
   return (
     <div className={styles.calendar}>
       <CalendarHeader />
-      <CalendarBody />
+      <CalendarBody
+        monthHabitsList={monthHabitsList}
+        selectedDate={selectedDate}
+      />
     </div>
   );
 };

@@ -12,9 +12,7 @@ const page = () => {
   const [monthHabitsList, setMonthHabitsList] = useState(dummyHabits2);
   const [dayHabitsList, setDayHabitsList] = useState([]);
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [selectedDate, setSelectedDate] = useState(
-    new Date('February, 2, 2020')
-  );
+  const [selectedDate, setSelectedDate] = useState(new Date('June, 2, 2024'));
 
   const [value, setValue] = useState(0);
 
@@ -49,7 +47,6 @@ const page = () => {
         ) : (
           <></>
         )}
-
         <p onClick={(e) => handleChangeDay(e)} id="nextDay">
           &gt;
         </p>
@@ -60,9 +57,7 @@ const page = () => {
         setDayHabitsList={setDayHabitsList}
         selectedDate={selectedDate}
       />
-      <Calendar />
-
-      <button onClick={() => console.log(selectedDate)}>check</button>
+      <Calendar monthHabitsList={monthHabitsList} selectedDate={selectedDate} />
     </div>
   );
 };
