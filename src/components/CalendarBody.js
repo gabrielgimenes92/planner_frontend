@@ -6,8 +6,6 @@ const CalendarBody = ({ monthHabitsList, selectedDate }) => {
   let completedMonth;
   let calendar = null;
   let firstCalendarLine = [];
-  let middleLines = [];
-  let i = 0;
   let firstDayOfMonth = new Date(
     `${selectedDate.getMonth() + 1} 1, ${selectedDate.getFullYear()}`
   );
@@ -55,13 +53,9 @@ const CalendarBody = ({ monthHabitsList, selectedDate }) => {
       <div className={styles.calendarLine}>{tempArray1}</div>
     );
 
-    // console.log(lastDayOfMonth.getDay());
-
-    //subsequent lines
-
+    //middle lines
     let nextSunday = 0;
     let lastSunday = lastDayOfMonth.getDate() - lastDayOfMonth.getDay();
-    // console.log(`last sunday: ${lastSunday}`);
 
     let middleLinesDone = true;
 
@@ -70,7 +64,6 @@ const CalendarBody = ({ monthHabitsList, selectedDate }) => {
 
       if (nextSunday == 0) {
         nextSunday = 7 - firstDayOfMonth.getDay() + firstDayOfMonth.getDate();
-        // console.log(`next sunday is: ${nextSunday} `);
         for (let i = 0; i <= 6; i++) {
           calendar = (
             <div className={styles.calendarCell}>
@@ -86,7 +79,6 @@ const CalendarBody = ({ monthHabitsList, selectedDate }) => {
         nextSunday = nextSunday + 7;
       } else {
         if (nextSunday < lastSunday) {
-          console.log(`There is a sunday on: ${nextSunday}`);
           for (let i = 0; i <= 6; i++) {
             calendar = (
               <div className={styles.calendarCell}>
@@ -102,15 +94,12 @@ const CalendarBody = ({ monthHabitsList, selectedDate }) => {
 
           nextSunday = nextSunday + 7;
         } else {
-          console.log('done');
-          // firstCalendarLine.push(middleLines);
           middleLinesDone = false;
         }
       }
     }
 
     //last line
-    console.log(`########################${lastDayOfMonth}`);
     let lastDayOfMonthWeekDay = lastDayOfMonth.getDay();
     let offsetEndDate = new Date();
     let tempArray2 = [];
@@ -158,53 +147,12 @@ const CalendarBody = ({ monthHabitsList, selectedDate }) => {
       <div className={styles.calendarLine}>{tempArray2}</div>
     );
 
-    // calendar = (
-    //   <div className={styles.calendarCell}>
-    //     <div className="calendar-bubbles"></div>
-    //     <h3>day</h3>
-    //   </div>
-    // );
-    // calendarLine.push(calendar);
-    // i++;
-    // if (i == 10) {
     completedMonth = true;
-    // }
   }
 
   return (
     <>
-      {/* <div className={styles.calendarLine}>
-        <div className={styles.calendarCell}>
-          <div className="calendar-bubbles"></div>
-          <h3>day</h3>
-        </div>
-        <div className={styles.calendarCell}>
-          <div className="calendar-bubbles"></div>
-          <h3>day</h3>
-        </div>
-        <div className={styles.calendarCell}>
-          <div className="calendar-bubbles"></div>
-          <h3>day</h3>
-        </div>
-        <div className={styles.calendarCell}>
-          <div className="calendar-bubbles"></div>
-          <h3>day</h3>
-        </div>
-        <div className={styles.calendarCell}>
-          <div className="calendar-bubbles"></div>
-          <h3>day</h3>
-        </div>
-        <div className={styles.calendarCell}>
-          <div className="calendar-bubbles"></div>
-          <h3>day</h3>
-        </div>
-        <div className={styles.calendarCell}>
-          <div className="calendar-bubbles"></div>
-          <h3>day</h3>
-        </div>
-      </div> */}
       <div>{firstCalendarLine}</div>
-      {/* <div>{middleLines}</div> */}
     </>
   );
 };
