@@ -1,11 +1,11 @@
 const dummyHabits2 = () => [
   {
-    date: new Date('February, 1, 2020'),
+    date: new Date('June, 1, 2024'),
     habits: [
       {
         id: '001',
         color: '#fcba03',
-        description: 'Habit being tracked on Feb 1',
+        description: 'Habit being tracked on Jun 1',
         checked: false,
       },
       {
@@ -35,12 +35,12 @@ const dummyHabits2 = () => [
     ],
   },
   {
-    date: new Date('February, 2, 2020'),
+    date: new Date('June, 2, 2024'),
     habits: [
       {
         id: '001',
         color: '#fcba03',
-        description: 'Habit being tracked on Feb 2',
+        description: 'Habit being tracked on Jun 2',
         checked: false,
       },
       {
@@ -70,12 +70,12 @@ const dummyHabits2 = () => [
     ],
   },
   {
-    date: new Date('February, 3, 2020'),
+    date: new Date('June, 3, 2024'),
     habits: [
       {
         id: '001',
         color: '#fcba03',
-        description: 'Habit being tracked on Feb 3',
+        description: 'Habit being tracked on Jun 3',
         checked: false,
       },
       {
@@ -105,12 +105,12 @@ const dummyHabits2 = () => [
     ],
   },
   {
-    date: new Date('February, 4, 2020'),
+    date: new Date('June, 4, 2024'),
     habits: [
       {
         id: '001',
         color: '#fcba03',
-        description: 'Habit being tracked on Feb 4',
+        description: 'Habit being tracked on Jun 4',
         checked: false,
       },
       {
@@ -140,12 +140,12 @@ const dummyHabits2 = () => [
     ],
   },
   {
-    date: new Date('February, 5, 2020'),
+    date: new Date('June, 5, 2024'),
     habits: [
       {
         id: '001',
         color: '#fcba03',
-        description: 'Habit being tracked on Feb 5',
+        description: 'Habit being tracked on Jun 5',
         checked: false,
       },
       {
