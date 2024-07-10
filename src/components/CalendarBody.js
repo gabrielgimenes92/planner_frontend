@@ -6,6 +6,7 @@ const CalendarBody = ({ monthHabitsList, selectedDate }) => {
   let completedMonth;
   let calendar = null;
   let firstCalendarLine = [];
+  let middleLines = [];
   let i = 0;
   let firstDayOfMonth = new Date(
     `${selectedDate.getMonth() + 1} 1, ${selectedDate.getFullYear()}`
@@ -20,6 +21,7 @@ const CalendarBody = ({ monthHabitsList, selectedDate }) => {
   while (!completedMonth) {
     let firstDayOfMonthWeekDay = firstDayOfMonth.getDay();
     let offsetStartDate = new Date();
+    let tempArray1 = [];
 
     //first line
     for (let i = 6; i >= 0; i--) {
@@ -46,15 +48,16 @@ const CalendarBody = ({ monthHabitsList, selectedDate }) => {
           </div>
         );
       }
-      firstCalendarLine.push(calendar);
+      tempArray1.push(calendar);
       firstDayOfMonthWeekDay--;
     }
+    firstCalendarLine.push(
+      <div className={styles.calendarLine}>{tempArray1}</div>
+    );
 
     // console.log(lastDayOfMonth.getDay());
 
     //subsequent lines
-    let middleLines = [];
-    let middleLineContent = [];
 
     let nextSunday = 0;
     let lastSunday = lastDayOfMonth.getDate() - lastDayOfMonth.getDay();
@@ -63,37 +66,74 @@ const CalendarBody = ({ monthHabitsList, selectedDate }) => {
     let middleLinesDone = true;
 
     while (middleLinesDone) {
+      let middleLineContent = [];
+
       if (nextSunday == 0) {
         nextSunday = 7 - firstDayOfMonth.getDay() + firstDayOfMonth.getDate();
-        console.log(`next sunday is: ${nextSunday} `);
+        // console.log(`next sunday is: ${nextSunday} `);
+        for (let i = 0; i <= 6; i++) {
+          calendar = (
+            <div className={styles.calendarCell}>
+              <div className="calendar-bubbles"></div>
+              <h3>{nextSunday + i}</h3>
+            </div>
+          );
+          middleLineContent.push(calendar);
+        }
+        firstCalendarLine.push(
+          <div className={styles.calendarLine}>{middleLineContent}</div>
+        );
         nextSunday = nextSunday + 7;
       } else {
         if (nextSunday < lastSunday) {
           console.log(`There is a sunday on: ${nextSunday}`);
+          for (let i = 0; i <= 6; i++) {
+            calendar = (
+              <div className={styles.calendarCell}>
+                <div className="calendar-bubbles"></div>
+                <h3>{nextSunday + i}</h3>
+              </div>
+            );
+            middleLineContent.push(calendar);
+          }
+          firstCalendarLine.push(
+            <div className={styles.calendarLine}>{middleLineContent}</div>
+          );
+
           nextSunday = nextSunday + 7;
         } else {
           console.log('done');
+          // firstCalendarLine.push(middleLines);
           middleLinesDone = false;
         }
       }
     }
 
-    middleLines.push(
-      <div className={styles.calendarLine}>{middleLineContent}</div>
-    );
-
     //last line
+    console.log(`########################${lastDayOfMonth}`);
     let lastDayOfMonthWeekDay = lastDayOfMonth.getDay();
     let offsetEndDate = new Date();
+    let tempArray2 = [];
 
     for (let i = 0; i <= 6; i++) {
-      if (lastDayOfMonthWeekDay >= 0) {
+      if (lastDayOfMonthWeekDay == 0) {
         offsetEndDate.setTime(
           lastDayOfMonth.getTime() + lastDayOfMonthWeekDay * 24 * 60 * 60 * 1000
         );
         let printDay = new Date();
         printDay.setTime(lastDayOfMonth.getTime() - offsetEndDate.getTime());
-
+        calendar = (
+          <div className={styles.calendarCell}>
+            <div className="calendar-bubbles"></div>
+            <h3>{printDay.getDate()}</h3>
+          </div>
+        );
+      } else if (lastDayOfMonthWeekDay > 0) {
+        offsetEndDate.setTime(
+          lastDayOfMonth.getTime() + lastDayOfMonthWeekDay * 24 * 60 * 60 * 1000
+        );
+        let printDay = new Date();
+        printDay.setTime(lastDayOfMonth.getTime() - offsetEndDate.getTime());
         calendar = (
           <div className={styles.calendarCell}>
             <div className="calendar-bubbles"></div>
@@ -111,9 +151,12 @@ const CalendarBody = ({ monthHabitsList, selectedDate }) => {
           </div>
         );
       }
-      firstCalendarLine.push(calendar);
+      tempArray2.push(calendar);
       lastDayOfMonthWeekDay--;
     }
+    firstCalendarLine.push(
+      <div className={styles.calendarLine}>{tempArray2}</div>
+    );
 
     // calendar = (
     //   <div className={styles.calendarCell}>
@@ -130,7 +173,7 @@ const CalendarBody = ({ monthHabitsList, selectedDate }) => {
 
   return (
     <>
-      <div className={styles.calendarLine}>
+      {/* <div className={styles.calendarLine}>
         <div className={styles.calendarCell}>
           <div className="calendar-bubbles"></div>
           <h3>day</h3>
@@ -159,8 +202,9 @@ const CalendarBody = ({ monthHabitsList, selectedDate }) => {
           <div className="calendar-bubbles"></div>
           <h3>day</h3>
         </div>
-      </div>
-      <div className={styles.calendarLine}>{firstCalendarLine}</div>
+      </div> */}
+      <div>{firstCalendarLine}</div>
+      {/* <div>{middleLines}</div> */}
     </>
   );
 };
