@@ -68,10 +68,13 @@ const CalendarBody = ({ monthHabitsList, selectedDate }) => {
         offsetEndDate.setTime(
           lastDayOfMonth.getTime() + lastDayOfMonthWeekDay * 24 * 60 * 60 * 1000
         );
+        let printDay = new Date();
+        printDay.setTime(lastDayOfMonth.getTime() - offsetEndDate.getTime());
+
         calendar = (
           <div className={styles.calendarCell}>
             <div className="calendar-bubbles"></div>
-            <h3>{offsetEndDate.getDate()}</h3>
+            <h3>{printDay.getDate()}</h3>
           </div>
         );
       } else if (lastDayOfMonthWeekDay < 0) {
