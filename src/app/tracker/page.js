@@ -12,7 +12,7 @@ const page = () => {
   const [monthHabitsList, setMonthHabitsList] = useState(dummyHabits2);
   const [dayHabitsList, setDayHabitsList] = useState([]);
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [selectedDate, setSelectedDate] = useState(new Date('June, 2, 2024'));
+  const [selectedDate, setSelectedDate] = useState(new Date('April, 2, 2024'));
 
   const [value, setValue] = useState(0);
 
@@ -21,12 +21,12 @@ const page = () => {
     let tempSelectedDate = new Date(selectedDate);
     switch (event.target.id) {
       case 'previousDay':
-        let previousDay = selectedDate.getDate() - 1;
-        tempSelectedDate.setDate(previousDay);
+        let previousDay = selectedDate.getMonth() - 1;
+        tempSelectedDate.setMonth(previousDay);
         return setSelectedDate(tempSelectedDate);
       case 'nextDay':
-        let nextDay = selectedDate.getDate() + 1;
-        tempSelectedDate.setDate(nextDay);
+        let nextDay = selectedDate.getMonth() + 1;
+        tempSelectedDate.setMonth(nextDay);
         return setSelectedDate(tempSelectedDate);
       default:
         return console.log('Error on the switch');
