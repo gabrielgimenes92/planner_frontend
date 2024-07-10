@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './CalendarBody.module.css';
+import next from 'next';
 
 const CalendarBody = ({ monthHabitsList, selectedDate }) => {
   let completedMonth;
@@ -49,11 +50,33 @@ const CalendarBody = ({ monthHabitsList, selectedDate }) => {
       firstDayOfMonthWeekDay--;
     }
 
-    console.log(lastDayOfMonth.getDay());
+    // console.log(lastDayOfMonth.getDay());
 
     //subsequent lines
     let middleLines = [];
     let middleLineContent = [];
+
+    let nextSunday = 0;
+    let lastSunday = lastDayOfMonth.getDate() - lastDayOfMonth.getDay();
+    // console.log(`last sunday: ${lastSunday}`);
+
+    let middleLinesDone = true;
+
+    while (middleLinesDone) {
+      if (nextSunday == 0) {
+        nextSunday = 7 - firstDayOfMonth.getDay() + firstDayOfMonth.getDate();
+        console.log(`next sunday is: ${nextSunday} `);
+        nextSunday = nextSunday + 7;
+      } else {
+        if (nextSunday < lastSunday) {
+          console.log(`There is a sunday on: ${nextSunday}`);
+          nextSunday = nextSunday + 7;
+        } else {
+          console.log('done');
+          middleLinesDone = false;
+        }
+      }
+    }
 
     middleLines.push(
       <div className={styles.calendarLine}>{middleLineContent}</div>
